@@ -46,10 +46,10 @@ if __name__ == '__main__':
     parser.add_argument('-n', '--noload', action="store_true", default = False, 
         help = 'Flag to avoid loading the entire file')
 
-    parser.add_argument('-z', '--zoom', nargs = 1, type = float, default = 0.5,
+    parser.add_argument('-z', '--zoom', nargs = 1, type = float, default = [0.5],
         help = 'Zoom level')
 
-    parser.add_argument('-i', '--interpolation', nargs = 1, type = int, default = 3,
+    parser.add_argument('-i', '--interpolation', nargs = 1, type = int, default = [3],
         help = 'Interpolation order')
 
     args = vars(parser.parse_args())
@@ -63,8 +63,8 @@ if __name__ == '__main__':
     template = args['template'][0]
     doload = not args['noload']
     outcube = args['outcube'][0]
-    zoom = args['zoom']
-    order = args['interpolation']
+    zoom = args['zoom'][0]
+    order = args['interpolation'][0]
 
     dt.tag("before ASCube")
     cube = ASCube.ASCube(dirname, box, frames, maxframes, template, doload)

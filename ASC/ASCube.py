@@ -97,8 +97,8 @@ class ASCube(object):
             # figure out 0 vs. 1 based offsets; box is 1 based
             return newData[0].header, newData[0].data[box[1]:box[3], box[0]:box[2]]
 
-    def downsample(self, zoom=0.5, order=3):
-        self.data = ndimage.zoom(self.data, [1,zoom,zoom], order=order)
+    def downsample(self, zoom=0.5, order=3): # @TODO Change to better downsampling function
+        self.data = ndimage.zoom(self.data, [1.0,zoom,zoom], order=order)
 
     def show(self):
         print("show")
